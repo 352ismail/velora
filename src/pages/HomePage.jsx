@@ -1,11 +1,18 @@
 import "./HomePage.css";
 import axios from "axios";
 import { Header } from "../components/Header";
-import { products } from "../../starting-code/data/products";
+// import { products } from "../../starting-code/data/products";
+
+import { useState, useEffect } from "react";
 export function HomePage() {
-  axios.get("http://localhost:3000/api/products").then((product)=>{
-    console.log(product.data);
-  });
+  const [products, setProducts] = useState([]);
+  useEffect(()=>{
+    console.log("Fetching data")
+    axios.get("http://localhost:3000/api/products").then((products)=>{
+      console.log(products.data)
+       setProducts(products.data)
+    });
+  }, []);
   return (
     <>
       <title>Velora E-commerce</title>
