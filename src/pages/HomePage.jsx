@@ -6,6 +6,7 @@ import { Header } from "../components/Header";
 import { useState, useEffect } from "react";
 export function HomePage() {
   const [products, setProducts] = useState([]);
+  const [cart , setCart] = useState([]);
   useEffect(()=>{
     console.log("Fetching data")
     axios.get("http://localhost:3000/api/products").then((products)=>{
@@ -13,10 +14,16 @@ export function HomePage() {
        setProducts(products.data)
     });
   }, []);
+
+  axios.get("http://localhost:3000/api/cart-items").then((cartItems)=>{
+  setCart(cartItems.data)
+  })
+
+
   return (
     <>
       <title>Velora E-commerce</title>
-      <Header />
+      <Header cart ={cart} />
       <div className="home-page">
         <div className="products-grid">
           {products.map((product) => {
