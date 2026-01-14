@@ -5,12 +5,15 @@ import dayjs from "dayjs";
 import { Link } from "react-router";
 import { Header } from "../../components/Header";
 import { FormatMoney } from "../utils/money";
+import { OrderHeader } from "./OrderHeader";
 export function OrderPage({ cart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    axios.get("/api/orders?expand=products").then((response) => {
-      setOrders(response.data);
-    });
+   const getOrders = async () =>{
+     const response = await axios.get("/api/orders?expand=products")
+       setOrders(response.data);
+   }
+   getOrders();
   }, []);
   return (
     <>
@@ -24,23 +27,7 @@ export function OrderPage({ cart }) {
           {orders.map((order) => {
             return <>
             <div key={order.id} className="order-container">
-            <div className="order-header">
-              <div className="order-header-left-section">
-                <div className="order-date">
-                  <div className="order-header-label">Order Placed:</div>
-                  <div>{dayjs(order.orderTimeMs).format("MMMM DD")}</div>
-                </div>
-                <div className="order-total">
-                  <div className="order-header-label">Total:</div>
-                  <div>${FormatMoney(order.totalCostCents)}</div>
-                </div>
-              </div>
-
-              <div className="order-header-right-section">
-                <div className="order-header-label">Order ID:</div>
-                <div>{order.id}</div>
-              </div>
-            </div>
+            <OrderHeader  order={order}/> 
 
             { order.products && ( order.products.map((product)=>{
               console.log(product);
