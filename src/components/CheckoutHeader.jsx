@@ -1,5 +1,5 @@
 import './checkout-header.css'
-export function CheckoutHeader() {
+export function CheckoutHeader({paymentSummary}) {
   return (
     <>
       <div className="checkout-header">
@@ -14,7 +14,7 @@ export function CheckoutHeader() {
           <div className="checkout-header-middle-section">
             Checkout (
             <a className="return-to-home-link" href="/">
-              3 items
+              {paymentSummary && (paymentSummary.totalItems)} items
             </a>
             )
           </div>

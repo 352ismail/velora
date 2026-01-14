@@ -24,7 +24,7 @@ export function TrackingPage({cart}) {
 
           <img
             className="product-image"
-            src="images/products/athletic-cotton-socks-6-pairs.jpg"
+            src="/images/products/athletic-cotton-socks-6-pairs.jpg"
           />
 
           <div className="progress-labels-container">

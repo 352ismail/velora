@@ -17,7 +17,7 @@ export function CheckoutPage({ cart }) {
   return (
     <>
       <title>checkout</title>
-      <CheckoutHeader />
+      <CheckoutHeader paymentSummary={paymentSummary}/>
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
 
