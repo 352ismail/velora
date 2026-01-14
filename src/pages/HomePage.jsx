@@ -4,9 +4,9 @@ import { Header } from "../components/Header";
 // import { products } from "../../starting-code/data/products";
 
 import { useState, useEffect } from "react";
-export function HomePage() {
+export function HomePage({cart}) {
   const [products, setProducts] = useState([]);
-  const [cart , setCart] = useState([]);
+
   useEffect(()=>{
     console.log("Fetching data")
     axios.get("/api/products").then((products)=>{
@@ -15,9 +15,7 @@ export function HomePage() {
     });
   }, []);
 
-  axios.get("/api/cart-items").then((cartItems)=>{
-  setCart(cartItems.data)
-  })
+
 
 
   return (
