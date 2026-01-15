@@ -5,7 +5,7 @@ import { Header } from "../../components/Header";
 // import { products } from "../../starting-code/data/products";
 
 import { useState, useEffect } from "react";
-export function HomePage({cart}) {
+export function HomePage({cart ,getCart}) {
   const [products, setProducts] = useState([]);
 
   useEffect(()=>{
@@ -20,7 +20,7 @@ export function HomePage({cart}) {
       <title>Velora E-commerce</title>
       <Header cart ={cart} />
       <div className="home-page">
-        <ProductGrid products={products}/> 
+        <ProductGrid products={products} getCart={getCart}/> 
       </div>
     </>
   );
