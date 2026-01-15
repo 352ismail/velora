@@ -4,7 +4,7 @@ import { DeliveryDate } from "./DeliveryDate";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CartItemDetails } from "./CartItemDetails";
-export function OrderSummary({ cart ,getCart ,getPaymentSummary}) {
+export function OrderSummary({ cart ,getCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function OrderSummary({ cart ,getCart ,getPaymentSummary}) {
           <div key={cartData.productId} className="cart-item-container">
            <DeliveryDate cartData={cartData} />
             <div className="cart-item-details-grid">
-              <CartItemDetails cartData={cartData} />
+              <CartItemDetails cartData={cartData} getCart={getCart} />
               <DeliveryOptions
                 deliveryOptions={deliveryOptions}
                 cart={cartData}
