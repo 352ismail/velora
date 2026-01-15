@@ -46,16 +46,7 @@ export function ProductDetails({ product, getCart }) {
           value={quantity}
           onChange={selectQuantity}
         >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
+          <QuantityOptions />
         </select>
       </div>
 
@@ -73,4 +64,14 @@ export function ProductDetails({ product, getCart }) {
       </button>
     </div>
   );
+}
+export function QuantityOptions() {
+  return [...Array(16).keys()].map((index) => {
+    // Adding a 'key' is required for lists in React
+    return (
+      <option key={index} value={index}>
+        {index}
+      </option>
+    );
+  });
 }
