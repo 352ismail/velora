@@ -39,7 +39,7 @@ export function PaymentSummary({ paymentSummary }) {
         </div>
       </div>
 
-      <button className="place-order-button button-primary">
+      <button className="place-order-button">
         Place your order
       </button>
     </div>

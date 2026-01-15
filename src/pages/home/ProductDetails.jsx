@@ -59,7 +59,7 @@ export function ProductDetails({product, getCart}){
                 await getCart();
                 
             }} 
-            className="add-to-cart-button button-primary">
+            className="add-to-cart-button">
               Add to Cart
             </button>
           </div>

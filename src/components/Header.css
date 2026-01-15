@@ -1,5 +1,5 @@
 .header {
-  background-color: rgb(8, 79, 45);
+  background-color: rgb(8, 59, 79);
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -35,13 +35,15 @@
 }
 
 .header .header-link:hover {
-  border: 1px solid white;
+  border: none
 }
 
 .header .logo {
-  height: 26px;
+  height: 70px;
   margin-top: 1px;
+  margin-left: 30px;
 }
+
 
 .header .mobile-logo {
   display: none;

@@ -1,4 +1,5 @@
 import './checkout-header.css'
+import logo from '../../public/images/logo.png'
 export function CheckoutHeader({paymentSummary}) {
   return (
     <>
@@ -6,8 +7,8 @@ export function CheckoutHeader({paymentSummary}) {
         <div className="header-content">
           <div className="checkout-header-left-section">
             <a href="/">
-              <img className="logo" src="images/logo.png" />
-              <img className="mobile-logo" src="images/mobile-logo.png" />
+              <img className="logo" src={logo}/>
+              <img className="mobile-logo" src="/images/mobile-logo.png" />
             </a>
           </div>
 

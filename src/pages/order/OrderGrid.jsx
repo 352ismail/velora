@@ -38,7 +38,7 @@ export function OrderGrid({ orders }) {
                           <div className="product-quantity">
                             Quantity: {product.quantity}
                           </div>
-                          <button className="buy-again-button button-primary">
+                          <button className="buy-again-button">
                             <img
                               className="buy-again-icon"
                               src="images/icons/buy-again.png"
