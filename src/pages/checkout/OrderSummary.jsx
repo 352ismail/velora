@@ -28,7 +28,6 @@ export function OrderSummary({ cart ,getCart ,getPaymentSummary}) {
                 deliveryOptions={deliveryOptions}
                 cart={cartData}
                 getCart={getCart}
-                getPaymentSummary={getPaymentSummary}
               />
             </div>
           </div>

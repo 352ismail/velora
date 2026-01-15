@@ -1,7 +1,7 @@
 import axios from "axios";
 import { FormatMoney } from "../utils/money";
 import dayjs from "dayjs";
-export function DeliveryOptions({deliveryOptions, cart ,getCart ,getPaymentSummary}) {
+export function DeliveryOptions({deliveryOptions, cart ,getCart }) {
   return (
     <div className="delivery-options">
       <div className="delivery-options-title">Choose a delivery option:</div>
@@ -16,7 +16,6 @@ export function DeliveryOptions({deliveryOptions, cart ,getCart ,getPaymentSumma
                 deliveryOptionId: deliveryOption.id
             });
             getCart();
-            getPaymentSummary();
 
           }}key={deliveryOption.id} className="delivery-option">
             <input
