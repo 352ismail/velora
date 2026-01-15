@@ -4,6 +4,7 @@ import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import "./App.css";
 import { TrackingPage } from "./pages/tracking/TrackingPage";
 import { OrderPage } from "./pages/order/OrderPage";
+import NotFoundPage from "./pages/notFound/NotFoundPage";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="checkout" element={<CheckoutPage cart={cart} />} />
       <Route path="orders" element={<OrderPage cart={cart} />} />
       <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart} />} />
+      <Route path="*" element={<NotFoundPage />} /> 
     </Routes>
   );
 }

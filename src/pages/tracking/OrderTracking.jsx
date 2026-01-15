@@ -16,7 +16,7 @@ export function OrderTracking({ product, orderTimeMs }) {
         </Link>
 
         <div className="delivery-date">
-          Arriving on
+          {deliveryPercent >= 100 ?"Delivered on " : "Arriving on"}
           {dayjs(product.estimatedDeliveryTimeMs).format("dddd, MMMM D")}
         </div>
 
@@ -40,6 +40,8 @@ export function CalculatedDeliveryProgessPercent(
   estimatedDeliveryTimeMs,
   orderTimeMs
 ) {
+    console.log("estimatedDeliveryTimeMs", estimatedDeliveryTimeMs)
+    console.log("orderTimeMs", orderTimeMs)
   const totalDeliveryTimeMs = estimatedDeliveryTimeMs - orderTimeMs;
   const timePassedMs = dayjs().valueOf() - orderTimeMs;
   let deliveryPercent = (timePassedMs / totalDeliveryTimeMs) * 100;
