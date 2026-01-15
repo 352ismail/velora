@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { OrderSummary } from "./orderSummary";
 import { PaymentSummary } from "./PaymentSummary";
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart,getCart }) {
   const [paymentSummary, setPaymentSummary] = useState(null);
+  const getPaymentSummary = async () => {
+    const response = await axios.get("/api/payment-summary");
+    setPaymentSummary(response.data);
+  };
   useEffect(() => {
-    const getPaymentSummary = async () => {
-      const response = await axios.get("/api/payment-summary");
-      setPaymentSummary(response.data);
-    };
     getPaymentSummary();
   }, []);
   return (
@@ -21,7 +21,7 @@ export function CheckoutPage({ cart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-          <OrderSummary cart={cart} />
+        <OrderSummary cart={cart} getCart={getCart} getPaymentSummary={getPaymentSummary}/>
           {paymentSummary && <PaymentSummary paymentSummary={paymentSummary} />}
         </div>
       </div>

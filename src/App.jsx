@@ -20,7 +20,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<HomePage cart={cart} getCart={getCart} />} />
-      <Route path="checkout" element={<CheckoutPage cart={cart} />} />
+      <Route path="checkout" element={<CheckoutPage cart={cart} getCart={getCart}  />} />
       <Route path="orders" element={<OrderPage cart={cart} />} />
       <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart} />} />
       <Route path="*" element={<NotFoundPage />} /> 

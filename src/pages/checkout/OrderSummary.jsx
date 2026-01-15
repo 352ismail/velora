@@ -4,15 +4,16 @@ import { DeliveryDate } from "./DeliveryDate";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CartItemDetails } from "./CartItemDetails";
-export function OrderSummary({ cart }) {
+export function OrderSummary({ cart ,getCart ,getPaymentSummary}) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
+
   useEffect(() => {
     const getDeliveryData = async () => {
-      const response = await axios.get(
-        "/api/delivery-options?expand=estimatedDeliveryTime"
-      );
-      setDeliveryOptions(response.data);
-    };
+    const response = await axios.get(
+      "/api/delivery-options?expand=estimatedDeliveryTime"
+    );
+    setDeliveryOptions(response.data);
+  };
     getDeliveryData();
   }, []);
   return (
@@ -26,6 +27,8 @@ export function OrderSummary({ cart }) {
               <DeliveryOptions
                 deliveryOptions={deliveryOptions}
                 cart={cartData}
+                getCart={getCart}
+                getPaymentSummary={getPaymentSummary}
               />
             </div>
           </div>
