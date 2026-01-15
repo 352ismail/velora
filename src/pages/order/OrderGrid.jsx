@@ -1,9 +1,8 @@
 import dayjs from "dayjs";
 import { Fragment } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { OrderHeader } from "./OrderHeader";
 export function OrderGrid({orders}) {
-    const navigate = useNavigate();
   return (
     <>
       <div className="orders-grid">
